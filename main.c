@@ -45,11 +45,11 @@ int main (void)
 	uint16_t c = 0;
 
 	enable_onboard_led();
-    setpin_out(DEBUG_DDR, DEBUG_PIN);
+	setpin_out(DEBUG_DDR, DEBUG_PIN);
 	serial_init();
 	fdevopen(serial_putchar, serial_getchar);
 
-    adc_init();
+	adc_init();
 
 	/* use tc0 for sampling rate */
 	timercounter0_setoverflow(OVERFLOW_TC0_16384US); // 16.384msec
@@ -61,13 +61,13 @@ int main (void)
 	{
 		if (take_sample)
 		{
-            onboard_led_on();
+			onboard_led_on();
 			setpin(DEBUG_PORT, DEBUG_PIN);
-            c = adc_getval(0); // take sample
+			c = adc_getval(0); // take sample
 			printf("r=%d\n\r", c);
 
 			clearpin(DEBUG_PORT, DEBUG_PIN);
-            onboard_led_off();
+			onboard_led_off();
 
 			take_sample = 0;
 		}

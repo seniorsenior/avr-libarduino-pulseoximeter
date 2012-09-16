@@ -23,7 +23,6 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "libarduino.h"
-#include "irkeys.h"
 
 /* stuff used in all modes */
 inline void enable_onboard_led(void)
